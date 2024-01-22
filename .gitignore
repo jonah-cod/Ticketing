@@ -1,0 +1,29 @@
+# Compiled files
+bin/
+obj/
+
+# NuGet packages
+*.nuget
+*.nupkg
+*.paket/paket-files/
+
+# Visual Studio files
+.vscode/
+*.vscode/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+[Dd]ist/
+TestResults
