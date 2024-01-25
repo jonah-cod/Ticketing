@@ -3,6 +3,8 @@ using Ticketing.Models;
 using Ticketing.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Ticketing.Data;
+using Microsoft.AspNetCore.JsonPatch;
+using Ticketing.Logging;
 
 namespace Ticketing.Controllers
 {
@@ -10,12 +12,19 @@ namespace Ticketing.Controllers
       [ApiController]
       public class TicketController : ControllerBase
       {
+            // Logging
+            private readonly ILogging _logger;
+            public TicketController(ILogging logger)
+            {
+                  _logger = logger;
+            }
 
             // Get all tickets
             [HttpGet]
             [ProducesResponseType(StatusCodes.Status200OK)]
             public ActionResult<IEnumerable<TicketDTO>> GetTickets()
             {
+                  _logger.Log("Getting all tickets", "Info");
                   return Ok(TicketStore.TicketList);
             }
 
@@ -34,8 +43,10 @@ namespace Ticketing.Controllers
 
                   if (ticket == null)
                   {
+                        _logger.Log("Didn't find ticket with ID: " + id, "Error");
                         return NotFound();
                   }
+                  
                   return Ok(ticket);
             }
 
@@ -50,7 +61,7 @@ namespace Ticketing.Controllers
                   // }
                   if (TicketStore.TicketList.FirstOrDefault(u=>u.Title == ticketDTO.Title) != null)
                   {
-                        ModelState.AddModelError("customError", "Ticket with the same title slready exists");
+                        ModelState.AddModelError("customError", "Ticket with the same title already exists");
                         return BadRequest(ModelState);
                   }
                   if(ticketDTO == null){
@@ -87,13 +98,14 @@ namespace Ticketing.Controllers
             }
 
 
-            // Deletin a Ticket
+            // Deleting a Ticket
 
             [HttpDelete("{id:int}", Name ="DeleteTicket")]
             [ProducesResponseType(StatusCodes.Status204NoContent)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
             public IActionResult DeleteTicket(int id){
+
                   if(id<=0){
                         return BadRequest();
                   }
@@ -102,8 +114,36 @@ namespace Ticketing.Controllers
                   {
                         return NotFound();
                   }
-
+                  _logger.Log("Deleting a ticket cannot be reverted, Ticket deleted: "+id, "warning");
                   TicketStore.TicketList.Remove(ticketToDelete);
+                  return NoContent();
+            }
+
+            // partially update tickets 
+            [HttpPatch("id:int", Name ="PartialyUpdate")]
+            [ProducesResponseType(StatusCodes.Status204NoContent)]
+            [ProducesResponseType(StatusCodes.Status400BadRequest)]
+            [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+            public IActionResult PartislyUpdateTicket(int id, JsonPatchDocument<TicketDTO> patchTicketDTO){
+                  if (patchTicketDTO==null || id ==0)
+                  {
+                        return BadRequest();
+                  }
+
+                  var ticket = TicketStore.TicketList.FirstOrDefault(u=>u.Id==id);
+
+                  if (ticket == null)
+                  {
+                        return NotFound();
+                  }
+
+                  patchTicketDTO.ApplyTo(ticket, ModelState);
+
+                  if (!ModelState.IsValid)
+                  {
+                        return BadRequest(ModelState);
+                  }
                   return NoContent();
             }
       }

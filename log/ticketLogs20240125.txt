@@ -1,0 +1,104 @@
+2024-01-25 11:31:21.555 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-01-25 11:31:21.638 +03:00 [DBG] Hosting starting
+2024-01-25 11:31:21.685 +03:00 [INF] Now listening on: http://localhost:5139
+2024-01-25 11:31:21.685 +03:00 [DBG] Loaded hosting startup assembly .
+2024-01-25 11:31:21.686 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-25 11:31:21.686 +03:00 [INF] Hosting environment: Development
+2024-01-25 11:31:21.686 +03:00 [INF] Content root path: C:\Users\JonathanMwaniki\Desktop\ticketing
+2024-01-25 11:31:21.686 +03:00 [DBG] Hosting started
+2024-01-25 11:32:30.450 +03:00 [DBG] Connection id "0HN0TG0LPQ314" accepted.
+2024-01-25 11:32:30.453 +03:00 [DBG] Connection id "0HN0TG0LPQ314" started.
+2024-01-25 11:32:30.555 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5139/api/tickets - -
+2024-01-25 11:32:30.563 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-01-25 11:32:30.631 +03:00 [DBG] 1 candidate(s) found for the request path '/api/tickets'
+2024-01-25 11:32:30.636 +03:00 [DBG] Endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)' with route pattern 'api/tickets' is valid for the request path '/api/tickets'
+2024-01-25 11:32:30.638 +03:00 [DBG] Request matched endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:30.683 +03:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-01-25 11:32:30.686 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-01-25 11:32:30.691 +03:00 [INF] Executing endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:30.713 +03:00 [INF] Route matched with {action = "GetTickets", controller = "Ticket"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Ticketing.Models.Dto.TicketDTO]] GetTickets() on controller Ticketing.Controllers.TicketController (.).
+2024-01-25 11:32:30.718 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-01-25 11:32:30.719 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-01-25 11:32:30.721 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-01-25 11:32:30.721 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-01-25 11:32:30.721 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-01-25 11:32:30.726 +03:00 [DBG] Executing controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:32:30.727 +03:00 [DBG] Executed controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:32:30.729 +03:00 [INF] Getting all tickets
+2024-01-25 11:32:30.734 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"]
+2024-01-25 11:32:30.740 +03:00 [DBG] Attempting to select an output formatter based on Accept header '["text/plain"]'.
+2024-01-25 11:32:30.742 +03:00 [DBG] Could not find an output formatter based on content negotiation. Accepted types were (["text/plain"])
+2024-01-25 11:32:30.743 +03:00 [WRN] No output formatter was found for content types '["text/plain"]' to write the response.
+2024-01-25 11:32:30.750 +03:00 [INF] Executed action Ticketing.Controllers.TicketController.GetTickets (.) in 22.4318ms
+2024-01-25 11:32:30.751 +03:00 [INF] Executed endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:30.757 +03:00 [DBG] Connection id "0HN0TG0LPQ314" completed keep alive response.
+2024-01-25 11:32:30.760 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5139/api/tickets - - - 406 0 - 210.9959ms
+2024-01-25 11:32:38.991 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5139/api/tickets - -
+2024-01-25 11:32:38.992 +03:00 [DBG] 1 candidate(s) found for the request path '/api/tickets'
+2024-01-25 11:32:38.992 +03:00 [DBG] Endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)' with route pattern 'api/tickets' is valid for the request path '/api/tickets'
+2024-01-25 11:32:38.993 +03:00 [DBG] Request matched endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:38.996 +03:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-01-25 11:32:38.997 +03:00 [INF] Executing endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:38.999 +03:00 [INF] Route matched with {action = "GetTickets", controller = "Ticket"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[Ticketing.Models.Dto.TicketDTO]] GetTickets() on controller Ticketing.Controllers.TicketController (.).
+2024-01-25 11:32:38.999 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-01-25 11:32:38.999 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-01-25 11:32:38.999 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-01-25 11:32:38.999 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-01-25 11:32:38.999 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-01-25 11:32:38.999 +03:00 [DBG] Executing controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:32:39.000 +03:00 [DBG] Executed controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:32:39.000 +03:00 [INF] Getting all tickets
+2024-01-25 11:32:39.002 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"]
+2024-01-25 11:32:39.002 +03:00 [DBG] Attempting to select an output formatter based on Accept header '["application/json"]'.
+2024-01-25 11:32:39.004 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-01-25 11:32:39.004 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ticketing.Models.Dto.TicketDTO, ., Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-01-25 11:32:39.263 +03:00 [INF] Executed action Ticketing.Controllers.TicketController.GetTickets (.) in 263.4484ms
+2024-01-25 11:32:39.263 +03:00 [INF] Executed endpoint 'Ticketing.Controllers.TicketController.GetTickets (.)'
+2024-01-25 11:32:39.263 +03:00 [DBG] Connection id "0HN0TG0LPQ314" completed keep alive response.
+2024-01-25 11:32:39.264 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5139/api/tickets - - - 200 186 application/json;+charset=utf-8 272.8582ms
+2024-01-25 11:34:03.407 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5139/api/tickets/10 - -
+2024-01-25 11:34:03.407 +03:00 [DBG] 1 candidate(s) found for the request path '/api/tickets/10'
+2024-01-25 11:34:03.407 +03:00 [DBG] Endpoint 'Ticketing.Controllers.TicketController.GetTicket (.)' with route pattern 'api/tickets/{id:int}' is valid for the request path '/api/tickets/10'
+2024-01-25 11:34:03.408 +03:00 [DBG] Request matched endpoint 'Ticketing.Controllers.TicketController.GetTicket (.)'
+2024-01-25 11:34:03.411 +03:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-01-25 11:34:03.411 +03:00 [INF] Executing endpoint 'Ticketing.Controllers.TicketController.GetTicket (.)'
+2024-01-25 11:34:03.433 +03:00 [INF] Route matched with {action = "GetTicket", controller = "Ticket"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[Ticketing.Models.Dto.TicketDTO] GetTicket(Int32) on controller Ticketing.Controllers.TicketController (.).
+2024-01-25 11:34:03.433 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-01-25 11:34:03.433 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-01-25 11:34:03.433 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-01-25 11:34:03.434 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-01-25 11:34:03.434 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-01-25 11:34:03.434 +03:00 [DBG] Executing controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:34:03.434 +03:00 [DBG] Executed controller factory for controller Ticketing.Controllers.TicketController (.)
+2024-01-25 11:34:03.444 +03:00 [DBG] Attempting to bind parameter 'id' of type 'System.Int32' ...
+2024-01-25 11:34:03.448 +03:00 [DBG] Attempting to bind parameter 'id' of type 'System.Int32' using the name 'id' in request data ...
+2024-01-25 11:34:03.449 +03:00 [DBG] Done attempting to bind parameter 'id' of type 'System.Int32'.
+2024-01-25 11:34:03.449 +03:00 [DBG] Done attempting to bind parameter 'id' of type 'System.Int32'.
+2024-01-25 11:34:03.449 +03:00 [DBG] Attempting to validate the bound parameter 'id' of type 'System.Int32' ...
+2024-01-25 11:34:03.453 +03:00 [DBG] Done attempting to validate the bound parameter 'id' of type 'System.Int32'.
+2024-01-25 11:34:03.458 +03:00 [ERR] Didn't find ticket with ID: 10
+2024-01-25 11:34:03.460 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"]
+2024-01-25 11:34:03.461 +03:00 [DBG] Attempting to select an output formatter based on Accept header '["application/json"]' and explicitly specified content types '["application/problem+json","application/problem+xml","application/problem+json","application/problem+xml"]'. The content types in the accept header must be a subset of the explicitly set content types.
+2024-01-25 11:34:03.461 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/problem+json' to write the response.
+2024-01-25 11:34:03.461 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-25 11:34:03.501 +03:00 [INF] Executed action Ticketing.Controllers.TicketController.GetTicket (.) in 66.8087ms
+2024-01-25 11:34:03.501 +03:00 [INF] Executed endpoint 'Ticketing.Controllers.TicketController.GetTicket (.)'
+2024-01-25 11:34:03.501 +03:00 [DBG] Connection id "0HN0TG0LPQ314" completed keep alive response.
+2024-01-25 11:34:03.501 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5139/api/tickets/10 - - - 404 161 application/problem+json;+charset=utf-8 93.9243ms
+2024-01-25 11:34:58.871 +03:00 [INF] Application is shutting down...
+2024-01-25 11:34:58.873 +03:00 [DBG] Hosting stopping
+2024-01-25 11:34:58.889 +03:00 [DBG] Connection id "0HN0TG0LPQ314" disconnecting.
+2024-01-25 11:34:58.891 +03:00 [DBG] Connection id "0HN0TG0LPQ314" stopped.
+2024-01-25 11:34:58.893 +03:00 [DBG] Connection id "0HN0TG0LPQ314" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-01-25 11:34:58.900 +03:00 [DBG] Hosting stopped
+2024-01-25 11:35:04.229 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-01-25 11:35:04.307 +03:00 [DBG] Hosting starting
+2024-01-25 11:35:04.370 +03:00 [INF] Now listening on: http://localhost:5139
+2024-01-25 11:35:04.370 +03:00 [DBG] Loaded hosting startup assembly .
+2024-01-25 11:35:04.370 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-25 11:35:04.371 +03:00 [INF] Hosting environment: Development
+2024-01-25 11:35:04.371 +03:00 [INF] Content root path: C:\Users\JonathanMwaniki\Desktop\ticketing
+2024-01-25 11:35:04.371 +03:00 [DBG] Hosting started
+2024-01-25 12:27:53.341 +03:00 [INF] Application is shutting down...
+2024-01-25 12:27:53.346 +03:00 [DBG] Hosting stopping
+2024-01-25 12:27:53.376 +03:00 [DBG] Hosting stopped
