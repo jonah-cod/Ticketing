@@ -13,5 +13,6 @@ namespace Ticketing.Models.Dto
       [Required]
       [MaxLength(100)]
       public string Description{get; set;}
+      public string Attachment{get; set;}
 
 }}
