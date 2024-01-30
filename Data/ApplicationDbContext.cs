@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Ticketing.Models;
+using Users.Models;
 
 namespace Ticketing.Data
 {
@@ -9,6 +10,7 @@ namespace Ticketing.Data
                   
             }
             public DbSet<Ticket> Tickets{get; set;}
+            public DbSet<User> Users{get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,7 +22,22 @@ namespace Ticketing.Data
                         Attachment="an example of an attachment.png"
                   }
             );
+
+            modelBuilder.Entity<User>().HasData(
+                  new User{
+                        Id=1,
+                        FullNames="John Doe",
+                        Email="thisisjohn@doe.com",
+                        Password="Plain password"
+                  }
+            );
+
+            base.OnModelCreating(modelBuilder);
         }
+
+        
+
+       
     }
 }
 
