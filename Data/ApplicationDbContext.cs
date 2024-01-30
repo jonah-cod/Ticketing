@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Ticketing.Models;
-using Users.Models;
 
 namespace Ticketing.Data
 {
-      public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
       {
             public ApplicationDbContext(DbContextOptions<ApplicationDbContext>options): base(options){
                   

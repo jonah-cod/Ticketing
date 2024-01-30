@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Ticketing.Data;
 using Ticketing.Logging;
-using Users.Models;
+using Ticketing.Models;
+using Ticketing.Models.Dto;
 
-namespace Users.Controllers
+namespace Ticketing.Controllers
 {
       [Route("/api/users")]
       [ApiController]
@@ -12,6 +13,7 @@ namespace Users.Controllers
 
             private readonly ILogging _logger;
             private readonly ApplicationDbContext dbContext;
+            private readonly IPasswordHasherService _PasswordHasher;
             public UsersControllers(ApplicationDbContext db, ILogging logger)
             {
                   _logger = logger;
@@ -49,5 +51,35 @@ namespace Users.Controllers
 
                   return Ok(User);
             }
-      }
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public ActionResult<IEnumerable<UserDTO>> CreateUser([FromBody] UserDTO userDTO)
+        {
+            if (userDTO == null)
+            {
+                  return BadRequest();
+            }
+
+            if (dbContext.Users.FirstOrDefault(u=>u.Email==userDTO.Email)!=null)
+            {
+                  ModelState.AddModelError("Emailerror", "Email already exists");
+
+                  return BadRequest(ModelState);
+            }
+
+            User model = new()
+            {
+                  Id=userDTO.Id,
+                  FullNames=userDTO.FullNames,
+                  Email=userDTO.Email,
+                  Password=_PasswordHasher.HashPassword(userDTO.Password)
+            };
+            dbContext.Add(model);
+            dbContext.SaveChanges();
+            return Ok();
+        }
+    }
 }
