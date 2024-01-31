@@ -56,48 +56,48 @@ namespace Ticketing.Controllers
                   return Ok(ticket);
             }
 
-            // Creating a new ticket
-            [HttpPost]
-            [ProducesResponseType(StatusCodes.Status201Created)]
-            [ProducesResponseType(StatusCodes.Status400BadRequest)]
-            [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-            public async Task<ActionResult<TicketDTO>> CreateTicketAsync([FromBody] TicketDTO ticketDTO)
+        // Creating a new ticket
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<TicketDTO> CreateTicket([FromBody] TicketDTO ticketDTO)
+        {
+            // if (!ModelState.IsValid){
+            //       return BadRequest(ModelState);
+            // }
+            if (_db.Tickets.FirstOrDefault(u => u.Title == ticketDTO.Title) != null)
             {
-                  // if (!ModelState.IsValid){
-                  //       return BadRequest(ModelState);
-                  // }
-                  if (_db.Tickets.FirstOrDefault(u => u.Title == ticketDTO.Title) != null)
-                  {
-                        ModelState.AddModelError("customError", "Ticket with the same title already exists");
-                        return BadRequest(ModelState);
-                  }
-                  if (ticketDTO == null)
-                  {
-                        return BadRequest(ticketDTO);
-                  }
-
-                  if (ticketDTO.Id > 0)
-                  {
-                        return StatusCode(StatusCodes.Status500InternalServerError);
-                  }
-                  Ticket model = new()
-                  {
-                        Id = ticketDTO.Id,
-                        Title = ticketDTO.Title,
-                        Description = ticketDTO.Description,
-                        Attachment = ticketDTO.Attachment
-
-                  };
-
-                  _db.Tickets.Add(model);
-                  _db.SaveChanges();
-
-                  return CreatedAtRoute("GetTicket", new { id = ticketDTO.Id }, ticketDTO);
+                ModelState.AddModelError("customError", "Ticket with the same title already exists");
+                return BadRequest(ModelState);
+            }
+            if (ticketDTO == null)
+            {
+                return BadRequest(ticketDTO);
             }
 
+            if (ticketDTO.Id > 0)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            Ticket model = new()
+            {
+                Id = ticketDTO.Id,
+                Title = ticketDTO.Title,
+                Description = ticketDTO.Description,
+                Attachment = ticketDTO.Attachment
 
-            // Editing a ticket
-            [HttpPut("{id:int}", Name = "UpdateTicket")]
+            };
+
+            _db.Tickets.Add(model);
+            _db.SaveChanges();
+
+            return CreatedAtRoute("GetTicket", new { id = ticketDTO.Id }, ticketDTO);
+        }
+
+
+        // Editing a ticket
+        [HttpPut("{id:int}", Name = "UpdateTicket")]
             [ProducesResponseType(StatusCodes.Status204NoContent)]
             [ProducesResponseType(StatusCodes.Status400BadRequest)]
             [ProducesResponseType(StatusCodes.Status404NotFound)]
